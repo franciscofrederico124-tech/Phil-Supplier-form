@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container label {
+  font-weight: 600;
+}
+
+.container input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #2f2f2f;
+  background: #111;
+  color: white;
+  outline: none;
+}
+
+.container span {
+  color: #ff6868;
+  font-size: 0.9rem;
+}

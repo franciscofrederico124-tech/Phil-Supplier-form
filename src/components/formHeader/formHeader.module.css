@@ -1,0 +1,46 @@
+.header {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.logo {
+  width: 120px;
+  margin: auto;
+}
+
+.content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.content p {
+  color: #b3b3b3;
+  line-height: 1.7;
+}
+
+.infoContainer {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.infoContainer div {
+  background: #1a1a1a;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.infoContainer span {
+  display: block;
+  color: #9a9a9a;
+  margin-bottom: 6px;
+}

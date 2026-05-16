@@ -1,0 +1,53 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+@media (max-width: 768px)
+{
+  .container {
+    padding: 14px;
+  }
+
+  .section {
+    padding: 20px;
+    border-radius: 18px;
+  }
+}

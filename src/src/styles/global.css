@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #080808;
+  --surface:     #111111;
+  --surface2:    #181818;
+  --border:      #242424;
+  --border-hover:#383838;
+  --accent:      #e8c97e;
+  --accent-dim:  rgba(232,201,126,.12);
+  --accent-glow: rgba(232,201,126,.25);
+  --text:        #f0f0f0;
+  --text-muted:  #707070;
+  --error:       #ff4d6d;
+  --error-dim:   rgba(255,77,109,.1);
+  --success:     #4ade80;
+  --radius:      10px;
+  --radius-lg:   16px;
+  --transition:  .2s cubic-bezier(.4,0,.2,1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+
+/* ── Inputs base ── */
+input, select, textarea {
+  width: 100%;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  padding: 13px 16px !important;
+  border-radius: var(--radius) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: border-color var(--transition), box-shadow var(--transition) !important;
+  appearance: none !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+input.has-error, select.has-error {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px var(--error-dim) !important;
+}
+
+input::placeholder { color: var(--text-muted) !important; }
+
+select option { background: #1a1a1a; color: var(--text); }
+
+/* Setas do select */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23707070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  padding-right: 40px !important;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.req { color: var(--accent); margin-left: 2px; }
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.form-group { margin-bottom: 22px; }
+
+/* ── Botões ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  letter-spacing: .02em;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #f0d68e;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+.btn:disabled { opacity: .4; cursor: not-allowed; transform: none !important; }
+
+/* ── Radio / Checkbox custom ── */
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+}
+.option-card:hover { border-color: var(--border-hover); background: var(--surface2); }
+.option-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.option-card .dot {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-hover);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.option-card.selected .dot {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.option-card.selected .dot::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+.option-card .square {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  border: 2px solid var(--border-hover);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.option-card.selected .square {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #0a0a0a;
+}
+.option-label { font-size: 14px; color: var(--text); flex: 1; }
+
+/* ── File upload ── */
+.file-drop {
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--surface);
+}
+.file-drop:hover, .file-drop.drag { border-color: var(--accent); background: var(--accent-dim); }
+.file-drop.has-file { border-color: var(--success); background: rgba(74,222,128,.07); }
+.file-drop input[type="file"] { display: none; }
+.file-drop-icon { font-size: 28px; margin-bottom: 10px; color: var(--text-muted); }
+.file-drop.has-file .file-drop-icon { color: var(--success); }
+.file-drop-text { font-size: 13px; color: var(--text-muted); }
+.file-drop-sub  { font-size: 12px; color: var(--text-muted); margin-top: 6px; opacity: .7; }
+
+/* ── Grid helper ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
